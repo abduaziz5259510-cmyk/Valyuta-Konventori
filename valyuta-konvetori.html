@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valyuta Konvertori</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#4facfe,#00f2fe);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            width:350px;
+            text-align:center;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        input, select, button{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button{
+            background:#4facfe;
+            color:white;
+            border:none;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#2196f3;
+        }
+
+        #result{
+            margin-top:15px;
+            font-size:20px;
+            font-weight:bold;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Valyuta Konvertori</h1>
+
+    <input type="number" id="amount" placeholder="Miqdorni kiriting">
+
+    <select id="currency">
+        <option value="12000">USD → UZS</option>
+        <option value="14500">EUR → UZS</option>
+        <option value="160">RUB → UZS</option>
+    </select>
+
+    <button onclick="convert()">Hisoblash</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function convert() {
+    let amount = document.getElementById("amount").value;
+    let rate = document.getElementById("currency").value;
+
+    let result = amount * rate;
+
+    document.getElementById("result").innerHTML =
+        amount + " = " + result.toLocaleString() + " so'm";
+}
+</script>
+
+</body>
+</html>
